@@ -1,0 +1,22 @@
+{
+  "name": "text-adventure-game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niallgcm/ngconf-text-adventure-games.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/niallgcm/ngconf-text-adventure-games/issues"
+  },
+  "homepage": "https://github.com/niallgcm/ngconf-text-adventure-games#readme",
+  "dependencies": {
+    "live-server": "^1.2.0"
+  }
+}
