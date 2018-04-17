@@ -6,154 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <style>
-        html {
-            background: black;
-            color: white;
-            font-family: Monospace;
-            font-size: 20px;
-        }
-
-        #app {
-            width: calc(100% - 300px);
-            float: left;
-
-        }
-
-        button {
-            background: black;
-            color: #20c20e;
-            border: 2px solid #20c20e;
-            font-family: monospace;
-            font-size: 20px;
-            margin-top: 30px;
-        }
-
-        button.red {
-            color: red;
-            border: red 2px solid;
-        }
-
-        #healthBar {
-            height: 21px;
-            width: 300px;
-            background-color: red;
-        }
-
-        .healthBarContainer {
-            width: 304px;
-            overflow: auto;
-            border: 2px solid red;
-            height: 25px;
-            background: black;
-
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        .emptyBar {
-            float: left;
-            display: none;
-            width: 0%;
-            height: 25px;
-            border-right: 2px solid red;
-            border-top: 2px solid red;
-            border-bottom: 2px solid red;
-
-
-        }
-
-        #inventory {
-            width: 300px;
-            float: right;
-            text-align: center;
-            top: 0;
-            right: 0;
-            height: 100vh;
-        }
-    </style>
-    <div id="app"></div>
-    <div class="inv-buffer"></div>
-    <div id='inventory'>
-        <h4>Health</h4>
-        <div class="healthBarContainer">
-            <div id="healthBar"></div>
-        </div>
-        <h4>Inventory</h4>
-        <hr>
-        <div id="inv-list"></div>
+    <div class="text">
+        <div id="app"></div>
+        <div id="choices"></div>
     </div>
-    <div id="choices"></div>
+    <div class="status">
+        <div class="inv-buffer"></div>
+        <div id='inventory'>
+            <h4>Health</h4>
+            <div class="healthBarContainer">
+                <div id="healthBar"></div>
+            </div>
+            <h4>Inventory</h4>
+            <hr>
+            <div id="inv-list"></div>
+        </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-    <script type="application/javascript">
-        var app = $("#app");
-        var choices = $("#choices");
-        var inventory = $("#inv-list");
-        var health = $("#healthBar");
-        var characterHealth = 100;
-        var charInventory = [];
-
-        function loseHealth(num) {
-            characterHealth -= num;
-            health.width(characterHealth * 3);
-            if (characterHealth <= 0) {
-                app.append('<br> Game Over')
-                choices.html('<button> Try Again </button>');
-            }
-        }
-
-        function pickUp(item) {
-            inventory.append(`<br> ${item}`);
-            charInventory.push(item);
-
-        }
-        $(document).ready(function () {
-            app.append("Welcome to NG Conf. Do you want to make a game?");
-            choices.html('<button id="yes">Yes</button>');
-            $("#yes").click(function () {
-                startGame()
-            });
-        });
-
-        function startGame() {
-            app.append("<br>Then let us begin.");
-            app.append(
-                "<br>You are walking home from school when you notice a key on the road next to a storm drain. Would you like to pick it up?"
-            );
-            choices.html(
-                '<button id="yes2">Yes</button> <button class="red" id="no2">No </button>'
-            );
-            $('#yes2').click(function () {
-                pickUp('key');
-                app.append(
-                    '<br>A huge hairy rat jumps out of the storm drain and runs across your hand as you are picking up the key. You shiver and fall over.'
-                )
-                app.append('<br>What would you like to do?')
-                choices.html(
-                    '<button class="red" id="fight"> Fight Rat </button> <button id="run"> Run Away </Button>'
-                );
-                $('#fight').click(function () {
-                    app.append(
-                        '<br> You stand up and kick the rat. As you kick it, it bites through your shoe and into your big toe. Your toe begins to throb as you lose 10 HP.'
-                    )
-                    loseHealth(10);
-
-                })
-            })
-            $('#no2').click(function () {
-                app.append(
-                    '<br> You keep walking home. While you are walking, you notice a man in a black suit walking towards you. What do you do?'
-                )
-                choices.html('<button id="talk">Talk to the man</button><button id="run">Run away</button>');
-            })
-        }
-    </script>
+    <script src='js/characterInit.js' type="application/javascript"></script>
+    <script src='js/utils.js'></script>
+    <script src='js/app.js' type="application/javascript"></script>
 </body>
 
 </html>

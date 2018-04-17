@@ -1,0 +1,87 @@
+html {
+  background: black;
+  color: white;
+  font-family: Monospace;
+  font-size: 20px;
+}
+
+.text {
+  width: calc(100% - 320px);
+  float: left;
+}
+
+.status {
+  width: 310px;
+  float: right;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.choices {
+  display: block;
+}
+
+span.red {
+  color: red;
+}
+
+span.code {
+  color: #aaa;
+}
+
+#app {
+  width: calc(100% - 30px);
+}
+
+button {
+  background: black;
+  color: #20c20e;
+  border: 2px solid #20c20e;
+  font-family: monospace;
+  font-size: 20px;
+  margin-top: 30px;
+  margin-right: 10px;
+}
+
+button.red {
+  color: red;
+  border: red 2px solid;
+}
+
+#healthBar {
+  height: 21px;
+  width: 300px;
+  background-color: red;
+}
+
+.healthBarContainer {
+  width: 304px;
+  overflow: auto;
+  border: 2px solid red;
+  height: 25px;
+  background: black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.emptyBar {
+  float: left;
+  display: none;
+  width: 0%;
+  height: 25px;
+  border-right: 2px solid red;
+  border-top: 2px solid red;
+  border-bottom: 2px solid red;
+}
+
+#inventory {
+  width: 320px;
+  float: right;
+  text-align: center;
+  top: 0;
+  right: 0;
+  height: 100vh;
+}
